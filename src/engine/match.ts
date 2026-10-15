@@ -16,6 +16,8 @@ export function escapeRegex(s: string): string {
 export function matchesKeyword(text: string, keyword: string): boolean {
   const kw = keyword.trim();
   if (!kw) return false;
+  // "*" is a catch-all: the campaign answers every comment on its post.
+  if (kw === "*") return true;
   const re = new RegExp(`(?<![\\p{L}\\p{N}_])${escapeRegex(kw)}(?![\\p{L}\\p{N}_])`, "iu");
   return re.test(text);
 }

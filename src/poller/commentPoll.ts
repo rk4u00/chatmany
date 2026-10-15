@@ -49,6 +49,8 @@ export async function pollComments(rt: Runtime, db: D1Database): Promise<void> {
         );
         continue;
       }
+      // Skip our own comments (e.g. the public replies we post) so a catch-all campaign never answers itself.
+      if (igsid === rt.igUserId) continue;
       const evt: NormalizedComment = {
         kind: "comment",
         comment_id: c.id,

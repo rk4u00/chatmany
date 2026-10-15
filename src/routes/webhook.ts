@@ -135,6 +135,8 @@ export async function handleWebhookEvent(env: Env, req: Request): Promise<Respon
       const igsid = v.from?.id;
       const mediaId = v.media?.id;
       if (!igsid || !mediaId || !v.id) continue;
+      // Our own public replies come back as comment events; never answer ourselves.
+      if (igsid === rt.igUserId) continue;
       const evt: NormalizedComment = {
         kind: "comment",
         comment_id: v.id,

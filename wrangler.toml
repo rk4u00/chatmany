@@ -73,4 +73,4 @@ POLL_INTERVAL_SECONDS = "60"
 WEBHOOK_RECONCILE_SECONDS = "900"
 # Redirect URI registered in your Meta app. Must match exactly: https://<your-worker>/auth/callback
 # You MUST change this before deploying — the placeholder is not a working URL.
-REDIRECT_URI = "https://REPLACE-WITH-YOUR-WORKER-URL.workers.dev/auth/callback"
+REDIRECT_URI = "https://chatmany.nemotron111.workers.dev/auth/callback"
